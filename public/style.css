@@ -1,0 +1,713 @@
+/* =========================================
+   1. LUXURY PALETTE & RESET
+   ========================================= */
+:root {
+    --gold: #D4AF37;           /* Klasyczne złoto */
+    --gold-metallic: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    --black: #0a0a0a;          /* Głęboka czerń */
+    --dark-grey: #1c1c1c;      /* Elegancki grafit */
+    --white: #ffffff;
+    --marble-bg: #f9f9f9;      /* Jasne tło */
+    --text-main: #222222;
+    --text-muted: #666666;
+    
+    /* Fonty */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    /* Efekty */
+    --shadow-gold: 0 10px 40px -10px rgba(212, 175, 55, 0.3);
+    --shadow-card: 0 15px 35px rgba(0,0,0,0.05);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body { 
+    font-family: var(--font-body); 
+    background-color: var(--marble-bg); 
+    color: var(--text-main); 
+    line-height: 1.8; 
+    font-weight: 300;
+    overflow-x: hidden;
+    /* Subtelne tło symulujące luksusową teksturę */
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(253,16%,7%,0) 0, hsla(253,16%,7%,0) 50%), 
+        radial-gradient(at 50% 100%, hsla(225,39%,30%,0) 0, hsla(225,39%,30%,0) 50%);
+}
+
+h1, h2, h3, h4 { 
+    font-family: var(--font-heading); 
+    color: var(--black); 
+    font-weight: 400; 
+    letter-spacing: 0.5px;
+}
+
+h2 { font-style: italic; }
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+ul { list-style: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+
+/* =========================================
+   2. HEADER & NAV (BLACK & GOLD)
+   ========================================= */
+header {
+    background: rgba(255, 255, 255, 0.98);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+    position: relative;
+}
+.logo::after {
+    content: '.'; color: var(--gold); font-size: 3rem; line-height: 0;
+}
+
+.nav-links { display: flex; gap: 40px; }
+.nav-links a {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--black);
+    font-weight: 400;
+    position: relative;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a::after {
+    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px;
+    background: var(--gold); transition: var(--transition);
+}
+.nav-links a:hover::after { width: 100%; }
+
+/* Elegancki Przycisk "Boek Nu" */
+.btn-gold {
+    background: transparent;
+    color: var(--black);
+    padding: 12px 35px;
+    border: 1px solid var(--black);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-gold::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 0%; height: 100%;
+    background: var(--black);
+    z-index: -1;
+    transition: var(--transition);
+}
+
+.btn-gold:hover { color: var(--gold); border-color: var(--black); }
+.btn-gold:hover::before { width: 100%; }
+
+
+
+/* =========================================
+   3. HERO SECTION (MAGAZINE GLAMOUR STYLE)
+   ========================================= */
+.hero {
+    height: 100vh; /* Pełna wysokość ekranu */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    margin-top: -80px; /* Wciąga hero pod header, żeby był transparentny efekt */
+    padding-top: 80px;
+}
+
+.hero-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    /* Ciemne tło zapasowe */
+    background-color: #050505; 
+    
+    /* Zdjęcie + Mocny Gradient, żeby tekst był czytelny bez ramki */
+    background-image: 
+        linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.8) 100%),
+        url('assets/hero.png');
+        
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Na mobile 'fixed' czasem psuje wydajność, scroll jest bezpieczniejszy */
+    z-index: 1;
+    
+    /* Subtelny zoom przy ładowaniu */
+    animation: zoomInHero 10s infinite alternate;
+}
+
+@keyframes zoomInHero {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+.hero-content {
+    position: relative; 
+    z-index: 2; 
+    max-width: 1000px;
+    padding: 0 20px;
+    /* USUWAMY RAMKI I TŁO - CZYSTA TYPOGRAFIA */
+    background: none;
+    border: none;
+    backdrop-filter: none;
+}
+
+/* Główny napis - OGROMNY i ZŁOTY/BIAŁY */
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 6rem; /* Bardzo duży rozmiar */
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-style: italic;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Cień pod tekstem zamiast tła */
+    letter-spacing: -2px;
+}
+
+/* Podtytuł */
+.hero p {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Szerokie odstępy między literami - bardzo eleganckie */
+    margin-bottom: 50px;
+    color: var(--gold); /* Złoty kolor dla kontrastu */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+/* Przycisk HERO - Minimalistyczny */
+.hero .btn-gold {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 18px 50px;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    transition: all 0.4s ease;
+}
+
+.hero .btn-gold:hover {
+    background: var(--gold);
+    color: var(--black);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); /* Złota poświata */
+}
+
+/* Responsywność na telefon */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3.5rem; letter-spacing: -1px; }
+    .hero p { font-size: 0.9rem; letter-spacing: 2px; }
+    .hero-bg { background-attachment: scroll; } /* Wyłączamy paralaksę na mobile */
+}
+
+/* =========================================
+   4. SECTIONS & DECORATIONS
+   ========================================= */
+section { padding: 120px 0; position: relative; }
+
+.divider {
+    width: 60px; height: 1px; background: var(--gold); margin: 20px auto;
+}
+
+.section-header h2 { font-size: 3.5rem; margin-bottom: 10px; }
+.section-header p { font-size: 1rem; color: var(--text-muted); font-style: italic; }
+
+/* =========================================
+   5. INFO CARDS
+   ========================================= */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.info-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+    background: var(--gold-metallic);
+    transform: scaleX(0); transition: var(--transition);
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-gold);
+    border-color: transparent;
+}
+.info-card:hover::before { transform: scaleX(1); }
+
+.info-icon {
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: 25px;
+    transition: var(--transition);
+}
+.info-card:hover .info-icon { color: var(--gold); transform: scale(1.1); }
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-family: var(--font-heading);
+    font-style: italic;
+}
+
+.info-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* =========================================
+   6. PRICING (MARBLE STYLE)
+   ========================================= */
+.pricing-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 60px;
+}
+
+.price-card {
+    background: #fff;
+    padding: 40px;
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.price-category h3 {
+    font-size: 2rem; margin-bottom: 30px; 
+    border-bottom: 1px solid var(--black); padding-bottom: 15px;
+    display: inline-block;
+}
+
+.price-item {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px;
+}
+
+.item-name { 
+    font-size: 1rem; font-weight: 400; color: var(--text-main); text-transform: uppercase; letter-spacing: 1px;
+}
+
+.item-price { 
+    font-family: var(--font-body); font-weight: 600; font-size: 1rem; color: var(--black); 
+}
+
+/* =========================================
+   7. BOOKING SYSTEM (PREMIUM STYLE)
+   ========================================= */
+#booking {
+    background: #f4f4f4;
+    position: relative;
+    padding: 100px 0;
+}
+
+.booking-wrapper {
+    background: #ffffff;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.booking-wrapper::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+    background: linear-gradient(90deg, var(--black) 0%, var(--gold) 50%, var(--black) 100%);
+}
+
+.booking-step {
+    padding: 50px;
+    display: none;
+    animation: slideIn 0.4s ease-out;
+}
+.booking-step.active { display: block; }
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-header { text-align: center; margin-bottom: 40px; }
+.step-number { 
+    display: inline-block; 
+    background: var(--black); 
+    color: var(--gold); 
+    padding: 5px 15px; 
+    border-radius: 50px; 
+    font-size: 0.75rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* Poprawka dla 5 kafelków w linii */
+.service-select-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Wyśrodkowanie */
+    gap: 15px; /* Mniejszy odstęp żeby się zmieściły */
+}
+
+.service-option {
+    /* Flex-basis ustawiony tak, by 5 weszło na szerokim ekranie (18% szerokości) */
+    flex: 1 1 18%; 
+    min-width: 140px; /* Minimalna szerokość, poniżej której spadnie niżej */
+    
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 20px 10px; /* Mniejszy padding wewnątrz */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.service-option i {
+    font-size: 2.5rem;
+    color: #ccc;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    display: block;
+}
+
+.service-option h4 { font-size: 1rem; margin-bottom: 5px; font-weight: 600; }
+.service-option small { color: #888; font-size: 0.8rem; }
+
+.service-option:hover { transform: translateY(-5px); border-color: var(--gold); }
+.service-option:hover i { color: var(--gold); }
+
+.service-option.selected {
+    background: var(--black);
+    border-color: var(--black);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.service-option.selected h4, .service-option.selected small { color: #fff; }
+.service-option.selected i { color: var(--gold); }
+
+/* Inputs */
+.input-group label {
+    font-size: 0.9rem; font-weight: 600; color: var(--text-dark); margin-bottom: 10px; display: block;
+}
+.input-group input {
+    width: 100%; padding: 15px 20px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; background: #fafafa; transition: 0.3s;
+}
+.input-group input:focus {
+    background: #fff; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1); outline: none;
+}
+
+/* Time Slots */
+.slots-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; margin-top: 20px;
+}
+.time-slot {
+    padding: 12px; border: 1px solid #ddd; border-radius: 5px; background: white; cursor: pointer; text-align: center; font-weight: 500; transition: var(--transition);
+}
+.time-slot:hover { border-color: var(--gold); color: var(--gold); }
+.time-slot.selected { background: var(--gold); color: white; border-color: var(--gold); }
+.time-slot.disabled { background: #f5f5f5; color: #ccc; cursor: not-allowed; text-decoration: line-through; }
+
+/* Buttons */
+.btn-group {
+    display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;
+}
+.btn-prev {
+    background: transparent; color: #888; border: 1px solid #ddd; padding: 12px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: 0.3s;
+}
+.btn-prev:hover { background: #eee; color: #333; }
+
+/* Messages */
+.msg-box { 
+    padding: 20px; margin-top: 20px; border-radius: 8px; text-align: center; display: none; font-weight: 500;
+}
+.msg-success { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+
+/* =========================================
+   8. FOOTER (DARK THEME)
+   ========================================= */
+footer {
+    background-color: #050505;
+    color: #a0a0a0;
+    padding: 80px 0 30px 0;
+    font-size: 0.95rem;
+    border-top: 5px solid var(--gold);
+}
+
+.footer-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
+}
+.footer-col h4::after {
+    content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 2px; background: var(--gold);
+}
+
+.footer-col p { margin-bottom: 15px; line-height: 1.6; }
+.footer-col i { color: var(--gold); width: 25px; text-align: center; margin-right: 10px; }
+
+.hours-list li {
+    display: flex; justify-content: space-between; padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.hours-list li span:first-child { color: #fff; }
+.hours-list li.closed span { color: #d66; }
+
+.social-links a {
+    display: inline-flex; justify-content: center; align-items: center;
+    width: 40px; height: 40px;
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
+    color: var(--white); margin-right: 10px; transition: 0.3s;
+}
+.social-links a:hover {
+    background: var(--gold); border-color: var(--gold); color: var(--black); transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: #555;
+}
+
+/* =========================================
+   GALERIA INFINITE LOOP
+   ========================================= */
+.gallery-section {
+    padding: 80px 0;
+    background: #fff;
+    overflow: hidden;
+}
+
+.gallery-track {
+    display: flex;
+    width: calc(300px * 16); /* 16 zdjęć po 300px (z marginesem) */
+    animation: scrollGallery 40s linear infinite;
+}
+
+.gallery-item {
+    width: 280px;
+    height: 350px;
+    margin: 0 10px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+@keyframes scrollGallery {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-300px * 8)); } /* Przesuwamy o połowę (8 zdjęć) */
+}
+
+/* =========================================
+   ADMIN PANEL STYLES
+   ========================================= */
+.admin-body {
+    background: #f4f4f4;
+    padding: 40px;
+}
+
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 20px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background: var(--black);
+    color: var(--white);
+    padding: 15px;
+    text-align: left;
+}
+
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-table tr:hover { background: #f9f9f9; }
+
+.action-btn {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 5px;
+    transition: 0.3s;
+}
+.btn-approve { background: #e8f5e9; color: green; }
+.btn-approve:hover { background: green; color: white; }
+.btn-reject { background: #ffebee; color: red; }
+.btn-reject:hover { background: red; color: white; }
+
+/* =========================================
+   ADMIN CALENDAR STYLES
+   ========================================= */
+.calendar-wrapper {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cal-header h3 { font-size: 1.5rem; margin: 0; }
+.cal-btn { 
+    background: var(--black); color: white; border: none; 
+    padding: 5px 15px; cursor: pointer; border-radius: 4px; 
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.cal-day-name {
+    text-align: center; font-weight: bold; color: #888; font-size: 0.9rem; padding-bottom: 10px;
+}
+
+.cal-day {
+    height: 80px;
+    border: 1px solid #eee;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+    background: #fafafa;
+    border-radius: 4px;
+}
+
+.cal-day:hover { border-color: var(--gold); background: #fff; }
+.cal-day-num { font-weight: bold; font-size: 0.9rem; }
+
+/* Statusy dni */
+.cal-day.has-approved {
+    background-color: #e8f5e9; /* Zielone tło - Zarezerwowane */
+    border-color: #c8e6c9;
+}
+.cal-day.has-approved::after {
+    content: '●'; color: green; position: absolute; bottom: 5px; right: 5px; font-size: 1.2rem;
+}
+
+.cal-day.has-pending {
+    background-color: #fff3e0; /* Pomarańczowe - Oczekujące */
+    border-color: #ffe0b2;
+}
+.cal-day.has-pending::after {
+    content: '●'; color: orange; position: absolute; bottom: 5px; right: 5px; font-size: 1.2rem;
+}
+
+/* MODAL (Okienko szczegółów) */
+.modal {
+    display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    align-items: center; justify-content: center;
+}
+.modal-content {
+    background-color: #fff; padding: 30px; border-radius: 8px; width: 90%; max-width: 500px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3); position: relative;
+}
+.close-modal {
+    position: absolute; right: 20px; top: 15px; font-size: 2rem; cursor: pointer; color: #aaa;
+}
+.modal-list li {
+    padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.95rem;
+}
+img {
+  width: 600px;      /* Twoja szerokość */
+  height: 600px;     /* Twoja wysokość */
+  object-fit: cover; /* To sprawi, że zdjęcie zostanie przycięte (crop) */
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3rem; }
+    .nav-links { display: none; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .hero-content { padding: 20px; border: none; background: none; }
+    .service-select-grid { grid-template-columns: 1fr 1fr; }
+}

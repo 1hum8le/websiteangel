@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Beauty by Angel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <div class="logo">Admin Panel</div>
+            <div style="font-size: 0.9rem;">Kalender & Boekingen</div>
+        </div>
+
+        <div class="calendar-wrapper">
+            <div class="cal-header">
+                <button class="cal-btn" onclick="changeMonth(-1)">&#10094; Vorige</button>
+                <h3 id="currentMonthYear">Januari 2026</h3>
+                <button class="cal-btn" onclick="changeMonth(1)">Volgende &#10095;</button>
+            </div>
+            
+            <div class="cal-grid">
+                <div class="cal-day-name">Ma</div> <div class="cal-day-name">Di</div>
+                <div class="cal-day-name">Wo</div>
+                <div class="cal-day-name">Do</div>
+                <div class="cal-day-name">Vr</div>
+                <div class="cal-day-name">Za</div>
+                <div class="cal-day-name">Zo</div> </div>
+            
+            <div id="calendarDays" class="cal-grid"></div>
+        </div>
+
+        <h3 style="margin-top: 40px; margin-bottom: 20px;">Recente Aanvragen</h3>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Tijd</th>
+                    <th>Klant</th>
+                    <th>Telefoon</th> <th>Dienst</th>
+                    <th>Status</th>
+                    <th>Actie</th>
+                </tr>
+            </thead>
+            <tbody id="appointmentsList">
+                <tr><td colspan="7" style="text-align:center;">Laden...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="dayModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 id="modalDateTitle" style="margin-bottom: 20px; color: var(--gold);">Details</h3>
+            <ul id="modalAppointments" class="modal-list" style="list-style: none; padding: 0;"></ul>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

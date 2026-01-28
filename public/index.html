@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty by Angel | Merksem</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Twoje style dla przełącznika języka w headerze */
+        .lang-switch {
+            position: fixed; /* Zmieniłem na fixed, żeby "pływał" zawsze na wierzchu */
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: rgba(255,255,255,0.9);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .lang-btn {
+            cursor: pointer;
+            margin: 0 5px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+        .lang-btn.active, .lang-btn:hover {
+            color: #d4af37; /* Gold */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-switch">
+        <span class="lang-btn active" onclick="setLanguage('nl')">NL</span> | 
+        <span class="lang-btn" onclick="setLanguage('fr')">FR</span> | 
+        <span class="lang-btn" onclick="setLanguage('en')">EN</span>
+    </div>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo"> <a href="#">Beauty by Angel</a></div>
+            <nav class="nav-links">
+                <a href="#about" data-i18n="nav_about">Over Ons</a>
+                <a href="#services" data-i18n="nav_prices">Prijzen</a>
+                <a href="#info" data-i18n="nav_info">Info</a>
+                <a href="#booking" data-i18n="nav_booking">Afspraak</a>
+                <a href="#contact" data-i18n="nav_contact">Contact</a>
+            </nav>
+            <a href="#booking" class="btn-gold" data-i18n="btn_book_nav">Boek Nu</a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 data-i18n="hero_title">Beauty by Angel</h1>
+            <p data-i18n="hero_sub">Nagels • Wenkbrauwen • Lasers</p>
+            <div class="hero-btn-wrapper">
+                <a href="#booking" class="btn-gold" data-i18n="hero_cta">MAAK EEN AFSPRAAK</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="background: #fff; padding: 100px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="about_title">Over Ons</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 60px; margin-top: 50px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="https://scontent.fbru4-1.fna.fbcdn.net/v/t39.30808-6/615817692_122105331393203139_1650880474316121569_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=B__v6Mvsrr8Q7kNvwENrkmn&_nc_oc=Adkiv7RsXHbm0zyZd6ut7euzvpy7yb5vfFGkPf8nStqVWN0fsoNYZUOW_gwqhUzVlF4&_nc_zt=23&_nc_ht=scontent.fbru4-1.fna&_nc_gid=afeg-Xj_jCZ-NRGH0dewgQ&oh=00_AfqKhqRJoXS2KcHebB8KK6q3sKjsCnceYZgQT8W0QEpDWQ&oe=69800E63" alt="Angelika" style="width: 100%; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 data-i18n="about_welcome" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 25px; color: var(--black);">Welkom bij Beauty by Angel</h3>
+                    
+                    <p data-i18n="about_text_1" style="margin-bottom: 20px; color: #666; font-size: 1rem; line-height: 1.8;">
+                        Jouw exclusieve schoonheidssalon in het hart van Merksem. Wij zijn gespecialiseerd in high-end nagelstyling (BIAB/Gel), perfecte wenkbrauwen en geavanceerde laserontharing.
+                    </p>
+                    
+                    <p data-i18n="about_text_2" style="margin-bottom: 30px; color: #666; font-size: 1rem; line-height: 1.8;">
+                        Bij ons staat persoonlijke aandacht en hygiëne centraal. Angelika zorgt ervoor dat elke behandeling een moment van pure ontspanning is met een prachtig resultaat.
+                    </p>
+                    
+                    <div style="display: flex; gap: 40px; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <div>
+                            <span style="font-size: 2.5rem; color: var(--gold); font-family: 'Playfair Display'; font-weight: 700;">5+</span>
+                            <p data-i18n="stat_exp" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Jaar Ervaring</p>
+                        </div>
+                        <div>
+                            <span style="font-size: 2.5rem; color: var(--gold); font-family: 'Playfair Display'; font-weight: 700;">100%</span>
+                            <p data-i18n="stat_sat" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Tevredenheid</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="services_title">Onze Diensten</h2>
+                <div class="divider"></div>
+                <p data-i18n="services_sub">Kwaliteit, precisie en verzorging in Merksem.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="price-category">
+                        <h3><i class="fas fa-hand-sparkles"></i> <span data-i18n="cat_nails">Nagels</span></h3>
+                        <div class="price-item"><span class="item-name" data-i18n="item_new_gel_s">Nieuwe set Gel (Kort)</span><span class="item-price">€40</span></div>
+                        <div class="price-item"><span class="item-name" data-i18n="item_new_gel_m">Nieuwe set Gel (Medium)</span><span class="item-price">€45</span></div>
+                        <div class="price-item"><span class="item-name" data-i18n="item_biab">BIAB op eigen nagels</span><span class="item-price">€40</span></div>
+                        <div class="price-item"><span class="item-name" data-i18n="item_refill">Bijwerken Gel/BIAB</span><span class="item-price">€40</span></div>
+                        <div class="price-item"><span class="item-name" data-i18n="item_pedi">Pedicure Gel</span><span class="item-price">€40</span></div>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-category">
+                        <h3><i class="fas fa-eye"></i> <span data-i18n="cat_brows">Wenkbrauwen</span></h3>
+                        <div class="price-item"><span class="item-name" data-i18n="item_henna">Henna Brows</span><span class="item-price">€25</span></div>
+                        <div class="price-item"><span class="item-name" data-i18n="item_epil">Epileren</span><span class="item-price">€5</span></div>
+                        <div class="price-item"><span class="item-name" data-i18n="item_lift">Lash Lifting</span><span class="item-price">€45</span></div>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-category">
+                        <h3><i class="fas fa-user-friends"></i> <span data-i18n="cat_ext">Haar Extensions</span></h3>
+                        <div class="price-item"><span class="item-name" data-i18n="item_ext_100">Extensions (100 gram)</span><span class="item-price">€250</span></div>
+                        <div class="price-item"><span class="item-name" data-i18n="item_ext_150">Extensions (150 gram)</span><span class="item-price">€340</span></div>
+                        <p style="font-size:0.8rem; color:#888; margin-top:10px;" data-i18n="ext_note">* Tape & Keratine.</p>
+                    </div>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-category">
+                        <h3><i class="fas fa-magic"></i> <span data-i18n="cat_specials">Specials</span></h3>
+                        <div class="price-item"><span class="item-name" data-i18n="item_teeth">Tandenbleken</span><span class="item-price" data-i18n="price_request">Op aanvraag</span></div>
+                        <div class="price-item"><span class="item-name" data-i18n="item_laser">Laser Ontharing</span><span class="item-price"><span data-i18n="price_from">Vanaf</span> €30</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info" style="background-color: #fcfcfc;">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="faq_title">Belangrijke Informatie</h2>
+                <div class="divider"></div>
+                <p data-i18n="faq_sub">Alles wat je moet weten voor en na de behandeling.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card"><div class="info-icon"><i class="fas fa-wine-glass-alt"></i></div><h3 data-i18n="faq_1_q">Wat is BIAB?</h3><p data-i18n="faq_1_a">BIAB staat voor Builder in a Bottle...</p></div>
+                <div class="info-card"><div class="info-icon"><i class="far fa-eye"></i></div><h3 data-i18n="faq_2_q">Lash Lifting</h3><p data-i18n="faq_2_a">Lift natuurlijke wimpers...</p></div>
+                <div class="info-card"><div class="info-icon"><i class="fas fa-leaf"></i></div><h3 data-i18n="faq_3_q">Henna Brows</h3><p data-i18n="faq_3_a">Verft haartjes én huid...</p></div>
+                <div class="info-card"><div class="info-icon"><i class="fas fa-bolt"></i></div><h3 data-i18n="faq_4_q">Laser Info</h3><p data-i18n="faq_4_a">Scheren 1 dag voor afspraak...</p></div>
+                <div class="info-card"><div class="info-icon"><i class="fas fa-crown"></i></div><h3 data-i18n="faq_5_q">Extensions Nazorg</h3><p data-i18n="faq_5_a">Was haar niet de eerste 48 uur...</p></div>
+                <div class="info-card"><div class="info-icon"><i class="far fa-clock"></i></div><h3>Tijdstip</h3><p>Kom op tijd voor je afspraak.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container" style="margin-bottom: 40px; text-align: center;">
+            <h2 style="font-family: var(--font-heading);" data-i18n="follow_ig">Volg ons op Instagram</h2>
+            <p style="color: var(--gold); margin-top: 10px;">@beautyby._angel</p>
+        </div>
+        <div class="gallery-track">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?auto=format&fit=crop&w=600&q=80" alt="Pedicure"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=80" alt="Manicure"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?auto=format&fit=crop&w=600&q=80" alt="Lashes"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=80" alt="Salon"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80" alt="Waxing"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Facial"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="Details"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=600&q=80" alt="Products"></div>
+
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?auto=format&fit=crop&w=600&q=80" alt="Pedicure"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=80" alt="Manicure"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?auto=format&fit=crop&w=600&q=80" alt="Lashes"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=80" alt="Salon"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80" alt="Waxing"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Facial"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="Details"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=600&q=80" alt="Products"></div>
+        </div>
+    </section>
+
+    <section id="booking">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="book_title">Maak een Afspraak</h2>
+                <div class="divider"></div>
+                <p data-i18n="book_sub">Kies je dienst, datum en tijd.</p>
+            </div>
+
+            <div class="booking-wrapper">
+                
+                <div class="booking-step active" id="step1">
+                    <div class="step-header">
+                        <span class="step-number" data-i18n="step_1">Stap 1/3</span>
+                        <h3 data-i18n="step_1_title">Kies een behandeling</h3>
+                    </div>
+                    <div class="service-select-grid">
+                        <div class="service-option" onclick="selectService('Nails')">
+                            <i class="fas fa-hand-sparkles"></i>
+                            <h4 data-i18n="serv_nails">Nagels</h4>
+                            <small data-i18n="serv_nails_sub">Gel / BIAB</small>
+                        </div>
+                        <div class="service-option" onclick="selectService('Brows')">
+                            <i class="far fa-eye"></i>
+                            <h4 data-i18n="serv_brows">Wenkbrauwen</h4>
+                            <small data-i18n="serv_brows_sub">Henna</small>
+                        </div>
+                        <div class="service-option" onclick="selectService('Lashes')">
+                            <i class="fas fa-eye-slash"></i>
+                            <h4 data-i18n="serv_lashes">Wimpers</h4>
+                            <small data-i18n="serv_lashes_sub">Lifting</small>
+                        </div>
+                        <div class="service-option" onclick="selectService('Extensions')">
+                            <i class="fas fa-user-friends"></i>
+                            <h4 data-i18n="serv_ext">Extensions</h4>
+                            <small data-i18n="serv_ext_sub">Haar</small>
+                        </div>
+                        <div class="service-option" onclick="selectService('Laser')">
+                            <i class="fas fa-bolt"></i>
+                            <h4 data-i18n="serv_laser">Laser</h4>
+                            <small data-i18n="serv_laser_sub">Ontharing</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-step" id="step2">
+                    <div class="step-header">
+                        <span class="step-number" data-i18n="step_2">Stap 2/3</span>
+                        <h3 data-i18n="step_2_title">Kies datum & tijd</h3>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label data-i18n="label_date">Datum:</label>
+                        <input type="date" id="dateInput" onchange="loadTimeSlots()">
+                        <small style="color:#d4af37; margin-top:5px; display:block;" data-i18n="label_closed_mon">* Maandag gesloten</small>
+                    </div>
+
+                    <div id="slotsContainer" style="display:none; margin-top: 30px;">
+                        <label style="font-weight:600; display:block; margin-bottom:15px;" data-i18n="label_avail_times">Beschikbare tijden:</label>
+                        <div class="slots-grid" id="timeSlots"></div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn-prev" onclick="goToStep(1)" data-i18n="btn_back">Terug</button>
+                    </div>
+                </div>
+
+                <div class="booking-step" id="step3">
+                    <div class="step-header">
+                        <span class="step-number" data-i18n="step_3">Stap 3/3</span>
+                        <h3 data-i18n="step_3_title">Uw gegevens</h3>
+                    </div>
+
+                    <form id="finalBookingForm">
+                        <div class="input-group">
+                            <label data-i18n="label_name">Naam:</label>
+                            <input type="text" id="clientName" required data-i18n-ph="ph_name" placeholder="Naam">
+                        </div>
+                        <div class="input-group" style="margin-top: 20px;">
+                            <label data-i18n="label_phone">Telefoonnummer:</label>
+                            <input type="tel" id="clientPhone" required placeholder="0471...">
+                        </div>
+                        
+                        <div style="background:#f9f9f9; padding:20px; border-left: 4px solid var(--gold); border-radius:5px; margin:30px 0;">
+                            <h4 style="font-size:1rem; margin-bottom:10px; color:var(--black);" data-i18n="label_summary">Samenvatting:</h4>
+                            <p id="summaryText" style="font-size:0.95rem; color:#555; line-height: 1.6;"></p>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn-prev" onclick="goToStep(2)" data-i18n="btn_back">Terug</button>
+                            <button type="submit" class="btn-gold" style="width: auto; min-width: 200px;" data-i18n="btn_confirm">Bevestig Afspraak</button>
+                        </div>
+                    </form>
+                    
+                    <div id="msgBox" class="msg-box"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="padding:0;">
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>Beauty by Angel</h4>
+                        <p data-i18n="footer_desc">Jouw expert in Merksem voor kwaliteit, precisie en verzorging.</p>
+                        <div class="social-links" style="margin-top:20px;">
+                            <a href="https://www.instagram.com/beautyby_.angel" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/BeautyByAngelMerksem" target="_blank"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="nav_contact">Contact</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Elfnovemberstraat 72, Antwerp</p>
+                        <p><i class="fas fa-phone"></i> 0471 87 30 46</p>
+                        <p><i class="fas fa-envelope"></i> info@beautybyangel.be</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer_hours">Openingsuren</h4>
+                        <ul class="hours-list">
+                            <li><span data-i18n="day_tue">Dinsdag</span> <span>10:00 - 19:00</span></li>
+                            <li><span data-i18n="day_wed">Woensdag</span> <span>10:00 - 19:00</span></li>
+                            <li><span data-i18n="day_thu">Donderdag</span> <span>10:00 - 19:00</span></li>
+                            <li><span data-i18n="day_fri">Vrijdag</span> <span>11:00 - 19:00</span></li>
+                            <li><span data-i18n="day_sat">Zaterdag</span> <span>10:00 - 20:00</span></li>
+                            <li><span data-i18n="day_sun">Zondag</span> <span>11:00 - 19:00</span></li>
+                            <li class="closed"><span data-i18n="day_mon">Maandag</span> <span data-i18n="closed">Gesloten</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="copyright">
+                    &copy; 2024 Beauty by Angel. <span data-i18n="rights">Alle rechten voorbehouden.</span>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <script src="translation.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

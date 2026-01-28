@@ -1,0 +1,55 @@
+{
+  "appointments": [
+    {
+      "id": 1769625445536,
+      "name": "Jakub",
+      "phone": "0471943560",
+      "service": "Lashes",
+      "date": "2026-01-29",
+      "time": "11:00",
+      "status": "approved",
+      "created_at": "2026-01-28T18:37:25.536Z"
+    },
+    {
+      "id": 1769626699908,
+      "name": "Jakub",
+      "phone": "0471943560",
+      "service": "Lashes",
+      "date": "2026-01-30",
+      "time": "13:00",
+      "status": "approved",
+      "created_at": "2026-01-28T18:58:19.908Z"
+    },
+    {
+      "id": 1769626741268,
+      "name": "Martin",
+      "phone": "04714939243",
+      "service": "Laser",
+      "date": "2026-02-12",
+      "time": "16:30",
+      "status": "approved",
+      "created_at": "2026-01-28T18:59:01.268Z"
+    },
+    {
+      "id": 1769629147773,
+      "name": "AnuJacob",
+      "phone": "04714939243",
+      "service": "Extensions",
+      "date": "2026-01-31",
+      "time": "19:30",
+      "status": "rejected",
+      "created_at": "2026-01-28T19:39:07.773Z"
+    },
+    {
+      "id": 1769629235292,
+      "name": "Jakub",
+      "phone": "04714939243",
+      "service": "Lashes",
+      "date": "2026-01-31",
+      "time": "16:30",
+      "status": "approved",
+      "created_at": "2026-01-28T19:40:35.292Z"
+    }
+  ],
+  "blocked": []
+}
