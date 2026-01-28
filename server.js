@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const DB_FILE = 'database.json';
 
 app.use(cors());
@@ -78,5 +78,5 @@ app.post('/api/admin/status', (req, res) => {
 
 // Start serwera
 app.listen(PORT, () => {
-    console.log(`Serwer działa na http://localhost:${PORT}`);
+    console.log(`Serwer działa na ${PORT}`);
 });
