@@ -222,7 +222,7 @@ header {
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); /* Złota poświata */
 }
 
-/* Responsywność na telefon */
+/* Responsywność na telefon - POPRAWIONA */
 @media (max-width: 768px) {
     .hero h1 { font-size: 3.5rem; letter-spacing: -1px; }
     .hero p { font-size: 0.9rem; letter-spacing: 2px; }
@@ -699,9 +699,9 @@ footer {
     padding: 10px 0; border-bottom: 1px solid #eee; font-size: 0.95rem;
 }
 img {
-  width: 600px;      /* Twoja szerokość */
-  height: 600px;     /* Twoja wysokość */
-  object-fit: cover; /* To sprawi, że zdjęcie zostanie przycięte (crop) */
+  width: 600px;      
+  height: 600px;     
+  object-fit: cover; 
 }
 
 /* =========================================
@@ -716,13 +716,36 @@ img {
 
 @media (max-width: 768px) {
     /* Menu */
-    .nav-links { display: none; } /* Tutaj docelowo przydałby się przycisk Hamburger */
+    .nav-links { display: none; } 
+    /* Dodajemy stylizację przycisku w headerze na mobile */
+    .navbar .btn-gold {
+        padding: 8px 15px;
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+    
     .navbar { justify-content: center; flex-direction: column; gap: 15px; }
     
+    /* Logo zmniejszone, aby pasowało do przycisku */
+    .logo {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
     /* Hero */
-    .hero { height: 70vh; margin-top: 0; }
-    .hero h1 { font-size: 3rem; }
-    .hero p { font-size: 0.9rem; letter-spacing: 2px; }
+    .hero { height: 80vh; margin-top: 0; }
+    .hero h1 { font-size: 2.8rem; letter-spacing: -1px; }
+    .hero p { font-size: 0.8rem; letter-spacing: 1.5px; margin-bottom: 30px; }
+    
+    /* Przycisk Hero - poprawka */
+    .hero .btn-gold {
+        padding: 14px 25px;
+        font-size: 0.75rem;
+        width: auto;
+        display: inline-block;
+        letter-spacing: 2px;
+    }
     
     /* Sekcje */
     section { padding: 60px 0; }
